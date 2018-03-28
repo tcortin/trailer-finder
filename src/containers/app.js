@@ -7,7 +7,6 @@ import Video from '../components/video'
 
 const API_END_POINT = "https://api.themoviedb.org/3/";
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&append_to_response=images";
-const API_KEY = "api_key=e2ae4ea12a7fa1cdaef3565e23c78eff";
 const SEARCH_URL = "search/movie?language=fr&include_adult=false";
 
 class App extends Component{
@@ -27,7 +26,7 @@ class App extends Component{
         }.bind(this));
     }
     applyVideoToCurrentMovie(){
-        axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}?${API_KEY}&append_to_response=videos&include_adult=false`).then(function(response){
+        axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}?${API_KEY}&append_to_response=videos&language=fr&include_adult=false`).then(function(response){
             const youtubeKey = response.data.videos.results[0].key;
             let newCurrentMovieState = this.state.currentMovie;
             newCurrentMovieState.videoId = youtubeKey;

@@ -19845,7 +19845,7 @@
 	    }, {
 	        key: 'applyVideoToCurrentMovie',
 	        value: function applyVideoToCurrentMovie() {
-	            _axios2.default.get(API_END_POINT + 'movie/' + this.state.currentMovie.id + '?' + API_KEY + '&append_to_response=videos&include_adult=false').then(function (response) {
+	            _axios2.default.get(API_END_POINT + 'movie/' + this.state.currentMovie.id + '?' + API_KEY + '&append_to_response=videos&language=fr&include_adult=false').then(function (response) {
 	                var youtubeKey = response.data.videos.results[0].key;
 	                var newCurrentMovieState = this.state.currentMovie;
 	                newCurrentMovieState.videoId = youtubeKey;
